@@ -28,7 +28,7 @@ hist(aggSteps, breaks = 10, col = "black", main = "Histogram of steps taken per 
     xlab = "steps per day")
 ```
 
-![plot of chunk Hist_step_by_day](figure/Hist_step_by_day.png) 
+![plot of chunk 1_Hist_step_by_day](figure/1_Hist_step_by_day.png) 
 
 Now we compute the mean and median:
 
@@ -61,7 +61,7 @@ plot(aggInt$x, type = "l", main = "Average steps per interval", xlab = "5-minute
 axis(1, at = 1:length(aggInt$Group.1), labels = aggInt$Group.1)
 ```
 
-![plot of chunk avg_steps_per_interval](figure/avg_steps_per_interval.png) 
+![plot of chunk 2_avg_steps_per_interval](figure/2_avg_steps_per_interval.png) 
 
 It can be seen that the interval which contains the maximum  average number of steps (206) is 835:
 
@@ -145,7 +145,7 @@ hist(aggcleanData$x, breaks = 10, col = "black", main = "Histogram of steps take
     xlab = "steps per day")
 ```
 
-![plot of chunk hist_step_transf](figure/hist_step_transf.png) 
+![plot of chunk 3_hist_step_transf](figure/3_hist_step_transf.png) 
 
 
 Lastly, we compute the mean and median:
@@ -194,7 +194,7 @@ qplot(Group.1, x, data = aggGroup, geom = "line", facets = Group.2 ~ ., xlab = "
     ylab = "Average number of steps", main = "Difference in activity by weekday/weekend")
 ```
 
-![plot of chunk compare_weekdays](figure/compare_weekdays.png) 
+![plot of chunk 4_compare_weekdays](figure/4_compare_weekdays.png) 
 
 
 **This concludes the Reproducible Research Assigment 1**

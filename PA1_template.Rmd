@@ -18,7 +18,7 @@ rawData$date <- as.Date(rawData$date, format = "%Y-%m-%d")
 ## Mean total number of steps taken per day
 
 The histogram shows the distribution of steps taken per day. Notice that in order to obtain this chart, *steps* data had to be aggregated (sum) by date.
-```{r Hist_step_by_day, fig.width=6, fig.height=6}
+```{r 1_Hist_step_by_day, fig.width=6, fig.height=6}
 aggData <- aggregate(rawData$steps, by=list(rawData$date), FUN=sum, na.rm=TRUE)
 aggSteps <- as.numeric(unlist(aggData[2]))
 hist(aggSteps, breaks= 10, 
@@ -35,7 +35,7 @@ median(aggSteps, na.rm=TRUE)
 ## Average daily activity pattern
 
 This time-series chart shows the evolution of average steps for every 5-minute interval. 
-```{r avg_steps_per_interval}
+```{r 2_avg_steps_per_interval}
 aggInt<- aggregate(rawData$steps, by=list(rawData$interval), FUN=mean, na.rm=TRUE)
 plot(aggInt$x, type="l",
      main="Average steps per interval",
@@ -79,7 +79,7 @@ myFunc()
 ```
 
 The histogram shows the result of transforming the data by filling in the NA values:
-```{r hist_step_transf}
+```{r 3_hist_step_transf}
 aggcleanData <- aggregate(cleanData$steps, by=list(cleanData$date), FUN=sum)
 hist(aggcleanData$x, breaks= 10, 
      col="black",
@@ -105,7 +105,7 @@ cleanData$dow <- sapply(cleanData$dow, FUN=function(x){
 ```
 
 The next step is to plot the average number of steps taken for every 5-minute interval and separated by *weekday* or *weekend*
-```{r compare_weekdays}
+```{r 4_compare_weekdays}
 library("ggplot2")
 aggGroup <- aggregate(cleanData$steps, by=list(cleanData$interval,cleanData$dow), FUN=mean)
 qplot(Group.1, x, data = aggGroup,
